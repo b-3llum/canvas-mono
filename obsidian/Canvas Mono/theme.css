@@ -1,0 +1,235 @@
+/* Canvas Mono for Obsidian
+   Grey canvas, flat panels, mono type, blue + orange accents. */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,700;1,300&display=swap');
+
+body {
+  --cm-canvas: #E4E4E4;
+  --cm-panel: #F3F3F3;
+  --cm-side: #EDEDED;
+  --cm-border: #D6D6D6;
+  --cm-grid: #D9D9D9;
+  --cm-text: #2B2B2B;
+  --cm-muted: #8A8A8A;
+  --cm-faint: #B4B4B4;
+  --cm-chip: #8E8E8E;
+  --cm-blue: #2F6BE0;
+  --cm-blue-dark: #2459C2;
+  --cm-orange: #F0613F;
+  --cm-rust: #B8502F;
+
+  --font-text-theme: 'JetBrains Mono', ui-monospace, monospace;
+  --font-interface-theme: 'JetBrains Mono', ui-monospace, monospace;
+  --font-monospace-theme: 'JetBrains Mono', ui-monospace, monospace;
+  --font-text-size: 15px;
+  --font-normal: 300;
+  --font-semibold: 500;
+  --font-bold: 700;
+  --line-height-normal: 1.7;
+
+  --radius-s: 3px;
+  --radius-m: 4px;
+  --radius-l: 6px;
+  --shadow-s: none;
+  --shadow-l: none;
+}
+
+.theme-light {
+  --background-primary: var(--cm-panel);
+  --background-primary-alt: #EBEBEB;
+  --background-secondary: var(--cm-side);
+  --background-secondary-alt: var(--cm-canvas);
+  --background-modifier-border: var(--cm-border);
+  --background-modifier-border-hover: #C8C8C8;
+  --background-modifier-border-focus: var(--cm-blue);
+  --background-modifier-hover: rgba(0, 0, 0, 0.05);
+  --background-modifier-active-hover: rgba(47, 107, 224, 0.12);
+  --background-modifier-form-field: var(--cm-panel);
+
+  --text-normal: var(--cm-text);
+  --text-muted: var(--cm-muted);
+  --text-faint: var(--cm-faint);
+  --text-accent: var(--cm-blue);
+  --text-accent-hover: var(--cm-blue-dark);
+  --text-on-accent: #FFFFFF;
+  --text-selection: rgba(47, 107, 224, 0.18);
+  --text-highlight-bg: rgba(240, 97, 63, 0.22);
+
+  --interactive-accent: var(--cm-blue);
+  --interactive-accent-hover: var(--cm-blue-dark);
+  --color-accent: var(--cm-blue);
+  --color-red: #D9482B;
+  --color-orange: var(--cm-orange);
+  --color-blue: var(--cm-blue);
+
+  --titlebar-background: var(--cm-canvas);
+  --titlebar-background-focused: var(--cm-canvas);
+  --tab-container-background: var(--cm-canvas);
+  --ribbon-background: var(--cm-canvas);
+  --status-bar-background: var(--cm-canvas);
+  --divider-color: var(--cm-border);
+
+  --h1-weight: 500; --h2-weight: 500; --h3-weight: 500;
+  --h1-size: 1.5em; --h2-size: 1.3em; --h3-size: 1.15em;
+  --link-color: var(--cm-blue);
+  --link-external-color: var(--cm-blue);
+  --link-unresolved-color: var(--cm-muted);
+  --code-background: #EBEBEB;
+  --code-normal: var(--cm-text);
+  --code-comment: #9A9A9A;
+  --code-keyword: var(--cm-blue);
+  --code-string: var(--cm-rust);
+  --code-value: #D9482B;
+  --code-function: #1F1F1F;
+  --code-property: #5C5C5C;
+  --code-tag: var(--cm-blue);
+  --code-operator: #6E6E6E;
+  --code-punctuation: #6E6E6E;
+  --blockquote-border-color: var(--cm-border);
+  --hr-color: var(--cm-border);
+
+  --tag-background: var(--cm-panel);
+  --tag-background-hover: var(--cm-canvas);
+  --tag-color: var(--cm-text);
+  --tag-color-hover: var(--cm-text);
+  --tag-border-width: 1px;
+  --tag-border-color: var(--cm-border);
+  --tag-border-color-hover: #C8C8C8;
+  --tag-radius: 4px;
+  --tag-padding-x: 0.5em;
+  --tag-padding-y: 0.1em;
+
+  --checkbox-radius: 50%;
+  --checkbox-color: var(--cm-blue);
+  --checkbox-color-hover: var(--cm-blue-dark);
+  --checkbox-border-color: #6E6E6E;
+  --checkbox-marker-color: #FFFFFF;
+  --checklist-done-color: var(--cm-muted);
+  --checklist-done-decoration: line-through;
+
+  --canvas-background: var(--cm-canvas);
+  --canvas-dot-pattern: transparent;
+  --canvas-card-label-color: var(--cm-muted);
+}
+
+/* Grid paper behind the workspace, like the reference */
+.theme-light .workspace,
+.theme-light .canvas-wrapper {
+  background-color: var(--cm-canvas);
+  background-image:
+    linear-gradient(var(--cm-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--cm-grid) 1px, transparent 1px);
+  background-size: 120px 120px;
+}
+
+/* Panes float as flat cards on the grid */
+.theme-light .workspace-split.mod-root .workspace-tabs {
+  margin: 8px;
+  border: 1px solid var(--cm-border);
+  border-radius: var(--radius-m);
+  overflow: hidden;
+  background: var(--cm-panel);
+}
+.theme-light .workspace-split.mod-root .workspace-leaf-resize-handle { background: transparent; }
+
+/* Tabs as chips */
+.workspace-tab-header {
+  border-radius: var(--radius-s) !important;
+}
+.workspace-tab-header::before,
+.workspace-tab-header::after { display: none !important; }
+.workspace-tab-header.is-active {
+  background: var(--cm-panel) !important;
+  box-shadow: inset 0 0 0 1px var(--cm-border);
+}
+.workspace-tab-header.is-active .workspace-tab-header-inner {
+  border-top: 2px solid var(--cm-blue);
+}
+
+/* File tree: solid blue selection like the Assets chip */
+.nav-file-title.is-active,
+.tree-item-self.is-active {
+  background: var(--cm-blue) !important;
+  color: #FFFFFF !important;
+}
+.nav-folder-title, .tree-item-self { border-radius: var(--radius-s); }
+
+/* Headings: plain, no decoration */
+.markdown-rendered h1, .markdown-rendered h2,
+.cm-header-1, .cm-header-2 {
+  letter-spacing: -0.01em;
+}
+.markdown-rendered h2 {
+  border-bottom: 1px solid var(--cm-border);
+  padding-bottom: 0.3em;
+}
+
+/* Checklist states: [ ] circle, [/] half circle, [*] asterisk */
+input[type=checkbox] { border-width: 1.5px; }
+input[data-task="/"]:checked,
+li[data-task="/"] > input:checked,
+li[data-task="/"] > p > input:checked {
+  background: linear-gradient(90deg, #6E6E6E 50%, transparent 50%);
+  border-color: #6E6E6E;
+}
+input[data-task="/"]:checked::after,
+li[data-task="/"] > input:checked::after { display: none; }
+li[data-task="/"].task-list-item.is-checked { text-decoration: none; color: var(--text-normal); }
+.markdown-preview-view ul > li.task-list-item[data-task="/"],
+.HyperMD-task-line[data-task="/"] { text-decoration: none; color: var(--text-normal); }
+
+input[data-task="*"]:checked,
+li[data-task="*"] > input:checked {
+  background: none;
+  border: none;
+}
+input[data-task="*"]:checked::after,
+li[data-task="*"] > input:checked::after {
+  content: "\2731";
+  -webkit-mask-image: none;
+  background: none;
+  color: var(--cm-orange);
+  font-size: 1em;
+  line-height: 1;
+  display: block;
+  text-align: center;
+}
+.HyperMD-task-line[data-task="*"],
+li[data-task="*"].is-checked { text-decoration: none; color: var(--text-normal); }
+
+/* Callouts: flat bordered cards */
+.callout {
+  background: var(--cm-panel);
+  border: 1px solid var(--cm-border);
+  border-radius: var(--radius-m);
+  mix-blend-mode: normal;
+}
+.callout-title { color: var(--cm-text); }
+
+/* Tables */
+.markdown-rendered table { border-collapse: collapse; }
+.markdown-rendered th { background: var(--cm-canvas); font-weight: 500; }
+.markdown-rendered th, .markdown-rendered td { border: 1px solid var(--cm-border); }
+
+/* Canvas cards */
+.canvas-node-container {
+  border-radius: var(--radius-m);
+  box-shadow: none !important;
+  border-width: 1px !important;
+}
+.canvas-node-content { background: var(--cm-panel); }
+
+/* Status bar + count badges as circled numbers */
+.status-bar { border-top: 1px solid var(--cm-border); color: #5C5C5C; }
+.tree-item-flair, .nav-file-tag {
+  background: transparent;
+  border: 1px solid #6E6E6E;
+  border-radius: 999px;
+  color: #5C5C5C;
+  min-width: 1.6em;
+  text-align: center;
+}
+
+/* Quiet scrollbars */
+::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.1); border-radius: 4px; }
+::-webkit-scrollbar-track { background: transparent; }

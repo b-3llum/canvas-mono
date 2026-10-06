@@ -1,0 +1,16 @@
+{
+  "name": "canvas-mono",
+  "displayName": "Canvas Mono",
+  "description": "Flat grey canvas theme with monospace type and blue/orange accents.",
+  "version": "0.1.0",
+  "publisher": "b-3llum",
+  "license": "MIT",
+  "repository": { "type": "git", "url": "https://github.com/b-3llum/canvas-mono" },
+  "engines": { "vscode": "^1.70.0" },
+  "categories": ["Themes"],
+  "contributes": {
+    "themes": [
+      { "label": "Canvas Mono", "uiTheme": "vs", "path": "./themes/canvas-mono-color-theme.json" }
+    ]
+  }
+}
