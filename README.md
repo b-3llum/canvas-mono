@@ -2,6 +2,12 @@
 
 Light editor theme: grey canvas, flat off-white panels, thin borders, one blue accent and one orange accent. Pair it with a monospace font everywhere, UI included.
 
+# Obsidian screenshot
+![obsidian screenshot](obsidian.png)
+
+# Visual Studio code screenshot
+![vsc screenshot](vsc.png)
+
 ## Palette
 
 | Token    | Hex       | Use                        |
